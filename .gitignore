@@ -9,7 +9,24 @@
 *.user
 *.userosscache
 *.sln.docstates
+
+# Environment variables files
+.env
+.env.local
+.env.*.local
 *.env
+secrets.json
+**/secrets/
+appsettings.*.json
+appsettings.*.local.json
+
+# Track the base configuration (no secrets)
+!appsettings.json
+
+# Explicitly ignore override files
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -48,6 +65,20 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+# Temporary Files
+.idea/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~.nib
+*.bak
+
+# Connection Strings files
+ConnectionStrings.config
+connectionStrings.json
+**/connectionstrings.json
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
@@ -73,6 +104,13 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+*.dll
+*.exe
+
+# EF Core
+*.db
+*.db-shm
+*.db-wal
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
@@ -112,6 +150,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+
 
 # Chutzpah Test files
 _Chutzpah*
@@ -249,6 +288,7 @@ _pkginfo.txt
 ClientBin/
 ~$*
 *~
+CodeCoverage/
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
@@ -281,6 +321,21 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# SQL Server LocalDB
+*.sdf
+
+# Database backup files
+*.bak
+*.dacpac
+*.bacpac
 
 # Business Intelligence projects
 *.rdl.data
@@ -369,8 +424,24 @@ ASALocalRun/
 *.binlog
 MSBuild_Logs/
 
-# AWS SAM Build and Temporary Artifacts folder
-.aws-sam
+# AWS Credentials (NEVER commit these!)
+aws-credentials
+.aws/
+aws-credentials.json
+credentials
+
+# AWS Lambda
+*.zip
+lambda-*.zip
+deployment-package.zip
+
+# AWS SAM / CloudFormation
+.aws-sam/
+samconfig.toml
+cdk.out/
+cdk.context.json
+*.template.json
+*.template.yaml
 
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
@@ -416,3 +487,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Docker / Dev Containers
+.devcontainer/.env
+.devcontainer/docker-compose.override.yml
